@@ -1,0 +1,11 @@
+{
+  "contacts": [
+    {
+      "id": "5e5bb121-1583-4b3a-a73b-4afbc6f65290",
+      "name": "Jhon Doe",
+      "address": "123 Main St",
+      "phone": "+1 555 555 5555",
+      "emaiil": "Jhon.doe@domain.com"
+    }
+  ]
+}
