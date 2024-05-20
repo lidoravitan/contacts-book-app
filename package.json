@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:server": "json-server --watch src/db/db.json --port 3030",
     "build": "tsc && vite build",
     "test": "vitest",
     "test:ui": "vitest --ui",
