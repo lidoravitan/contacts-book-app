@@ -13,3 +13,9 @@ export const handlers = [
 ]
 
 export const server = setupServer(...handlers)
+
+export const failureServer = setupServer(
+  http.get(`${appConfig.BASE_URL}/contacts`, () => {
+    return HttpResponse.error()
+  }),
+)

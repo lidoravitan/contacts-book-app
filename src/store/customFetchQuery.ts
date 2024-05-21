@@ -12,7 +12,7 @@ export function customFetchQuery({ baseUrl }: { baseUrl: string }) {
   return async function (...args) {
     const connectivity = localStorage.getItem('connectivity')
     const isOnline = connectivity !== null && connectivity === ConnectivityStates.CONNECTED
-    await wait(1500)
+    await wait(30000)
     if (isOnline) {
       return baseQuery(...args)
     } else {
