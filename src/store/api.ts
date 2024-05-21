@@ -4,6 +4,7 @@ import { toast } from 'react-toastify'
 import { Contact } from '../commons/types'
 import { customFetchQuery } from './customFetchQuery'
 import { appConfig } from '../commons/appConfig'
+import { getContactsMachine } from '../machines/getContacts.machine'
 
 export const api = createApi({
   reducerPath: 'contacts',
@@ -11,6 +12,16 @@ export const api = createApi({
   endpoints: (builder) => ({
     getContacts: builder.query<Contact[], void>({
       query: () => `/contacts`,
+      async onQueryStarted(_, { queryFulfilled }) {
+        const { transition } = getContactsMachine
+        try {
+          transition('fetch')
+          await queryFulfilled
+          transition('resolve')
+        } catch {
+          transition('reject')
+        }
+      },
     }),
 
     addContact: builder.mutation<Contact, Contact>({
@@ -90,5 +101,4 @@ export const api = createApi({
   }),
 })
 
-export const { useLazyGetContactsQuery, useAddContactMutation, useUpdateContactMutation, useDeleteContactMutation } =
-  api
+export const { useGetContactsQuery, useAddContactMutation, useUpdateContactMutation, useDeleteContactMutation } = api

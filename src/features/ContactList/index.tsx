@@ -1,23 +1,18 @@
 import { Table } from 'antd'
 import { GetContactStates, getContactsMachine } from '../../machines/getContacts.machine'
 import { useMachineSelector } from '../../simple-fsm'
+import { useGetContactsQuery } from '../../store/api'
 import { ErrorBanner } from './ErrorBanner'
 import { columns } from './columns'
-import { useContactList } from './hooks'
 
 export function ContactList() {
-  const { data } = useContactList()
+  const { data } = useGetContactsQuery()
   const machineState = useMachineSelector(getContactsMachine)
 
   return (
     <>
       <ErrorBanner />
-      <Table
-        columns={columns}
-        dataSource={machineState === GetContactStates.SUCCESS ? data : []}
-        rowKey="id"
-        loading={machineState === GetContactStates.FETCHING}
-      />
+      <Table columns={columns} dataSource={data} rowKey="id" loading={machineState === GetContactStates.FETCHING} />
     </>
   )
 }

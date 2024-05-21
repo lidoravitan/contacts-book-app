@@ -1,11 +1,11 @@
 import { Alert, Button } from 'antd'
 import { GetContactStates, getContactsMachine } from '../../machines/getContacts.machine'
 import { useMachineSelector } from '../../simple-fsm'
-import { useContactList } from './hooks'
+import { useGetContactsQuery } from '../../store/api'
 
 export function ErrorBanner() {
   const machineState = useMachineSelector(getContactsMachine)
-  const { refetch } = useContactList({ skip: true })
+  const { refetch } = useGetContactsQuery()
 
   return machineState === GetContactStates.ERROR ? (
     <Alert

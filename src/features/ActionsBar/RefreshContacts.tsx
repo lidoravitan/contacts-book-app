@@ -1,9 +1,9 @@
 import { RetweetOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
-import { useContactList } from '../ContactList/hooks'
+import { useGetContactsQuery } from '../../store/api'
 
 export function RefreshContacts() {
-  const { refetch } = useContactList({ skip: true })
+  const { refetch } = useGetContactsQuery()
   return (
     <Button type="primary" onClick={() => refetch()}>
       <RetweetOutlined /> Refresh Contacts
