@@ -1,9 +1,11 @@
 import { createMachine } from '../simple-fsm'
 
+const STORAGE_KEY = 'connectivity'
+
 const getConnectivity = () => {
-  const connectivity = localStorage.getItem('connectivity')
-  if (connectivity === null) localStorage.setItem('connectivity', ConnectivityStates.CONNECTED)
-  return localStorage.getItem('connectivity') as ConnectivityStates
+  let connectivity = localStorage.getItem(STORAGE_KEY)
+  if (connectivity === null) localStorage.setItem(STORAGE_KEY, ConnectivityStates.CONNECTED)
+  return localStorage.getItem(STORAGE_KEY) as ConnectivityStates
 }
 
 export enum ConnectivityStates {
@@ -19,7 +21,7 @@ export const connectivityMachine = createMachine<ConnectivityStates, Events>({
     [ConnectivityStates.CONNECTED]: {
       actions: {
         onEnter: () => {
-          localStorage.setItem('connectivity', ConnectivityStates.CONNECTED)
+          localStorage.setItem(STORAGE_KEY, ConnectivityStates.CONNECTED)
         },
       },
       transitions: {
@@ -31,7 +33,7 @@ export const connectivityMachine = createMachine<ConnectivityStates, Events>({
     [ConnectivityStates.DISCONNECTED]: {
       actions: {
         onEnter: () => {
-          localStorage.setItem('connectivity', ConnectivityStates.DISCONNECTED)
+          localStorage.setItem(STORAGE_KEY, ConnectivityStates.DISCONNECTED)
         },
       },
       transitions: {
