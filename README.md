@@ -11,7 +11,9 @@
    - [Machines](#machines)
    - [RTK query - Optimistic UI](#rtk-query---optimistic-ui)
 
-3. [Setup & Scripts](#setup--scripts)
+3. [Future Improvements](#future-improvements)
+
+4. [Setup & Scripts](#setup--scripts)
 
    - [Setup](#setup)
    - [Scripts](#scripts)
@@ -100,6 +102,18 @@ Some key aspects to highlight:
 1. For the `addContact` functionality, I implemented the optimistic UI pattern to update the interface before receiving the server response.
 2. To handle the `getContacts` operation, I developed a custom hook specifically to integrate with the simple state machine and manage the request state. (Of course, this functionality could be obtained effortlessly using RTK Query.)
 3. In contrast, for the `updateContact` feature, I deliberately refrained from using the optimistic UI pattern to emphasize the distinction between the two approaches.
+
+## Future Improvements
+
+If I had more time, I would have implemented the following features:
+
+- **git-hooks**: Implement pre-commit and pre-push hooks to ensure code quality and prevent bad commits.
+- **Filters**: Allow filtering of contacts by name, email, phone number, and other criteria. Include search functionality and pagination.
+- **Finite State Machine**: Introduce a finite state machine to support asynchronous actions and side effects.
+- **Additional Tests**: Implement more unit tests, integration tests, and end-to-end tests to ensure robustness.
+- **Expanded Functionality**: Add features like favoriting contacts and a "delete all contacts" option.
+
+There are, of course, many more features that could further enhance the app.
 
 ## Setup & Scripts
 
