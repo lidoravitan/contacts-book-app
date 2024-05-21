@@ -1,16 +1,15 @@
 export interface StateActions {
-  onEnter: () => void
-  onExit: () => void
+  onEnter?: () => void
+  onExit?: () => void
 }
 
 export interface Transition<S extends string> {
   target: S
-  action?: () => void
 }
 
 export interface StateDefinition<S extends string, E extends string> {
   actions?: StateActions
-  transitions: { [key in E]: Transition<S> }
+  transitions: { [key in E]?: Transition<S> }
 }
 
 export interface StateMachineDefinition<S extends string, E extends string> {
