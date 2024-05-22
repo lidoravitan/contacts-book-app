@@ -33,10 +33,10 @@ const dark = css`
     --natural-0: #ffffff;
     --natural-10: #000;
 
-    --space-sm: 0.5rem;
-    --space-md: 1rem;
-    --space-lg: 2rem;
-    --space-xl: 4rem;
+    --space-sm: 10px;
+    --space-md: 15px;
+    --space-lg: 20px;
+    --space-xl: 25px;
   }
   ${commonCss}
 `
@@ -51,10 +51,10 @@ const light = css`
     --natural-0: #000;
     --natural-10: #ffffff;
 
-    --space-sm: 0.5rem;
-    --space-md: 1rem;
-    --space-lg: 2rem;
-    --space-xl: 4rem;
+    --space-sm: 10px;
+    --space-md: 15px;
+    --space-lg: 20px;
+    --space-xl: 25px;
   }
   ${commonCss}
 `
