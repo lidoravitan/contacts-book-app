@@ -1,14 +1,14 @@
 import { Provider } from 'react-redux'
-import { ThemeProvider } from './commons/components/ThemeProvider'
 import { ToastContainer } from 'react-toastify'
-import { store } from './store'
 import 'react-toastify/dist/ReactToastify.css'
+import { ThemeProvider } from './commons/components/ThemeProvider'
 import { ConnectivityBanner } from './features/ConnectivityBanner'
+import { createstore } from './store'
 
 export function AppProviders({ children }: { children?: React.ReactNode }) {
   return (
     <ThemeProvider>
-      <Provider store={store}>
+      <Provider store={createstore()}>
         <ToastContainer position="bottom-left" />
         <ConnectivityBanner />
         {children}
